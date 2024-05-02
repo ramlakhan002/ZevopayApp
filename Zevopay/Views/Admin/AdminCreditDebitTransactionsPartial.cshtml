@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WalletTransactions>
+<div class="table-responsive">
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>MemberId / MemberName </th>
+            <th>Amount</th>
+            <th>Balance</th>
+            <th>Factor</th>
+            <th>Description</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model?.Count() > 0)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MemberId (@item.MemberName)</td>
+                    <td>@item.Amount</td>
+                    <td>@item.Balance</td>
+                    <td>@item.Factor</td>
+                    <td>@item.Description </td>
+                    <td> @item.AddDate </td>
+                </tr>
+
+            }
+        }
+    </tbody>
+</table>
+</div>

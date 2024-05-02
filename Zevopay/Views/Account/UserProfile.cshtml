@@ -1,0 +1,117 @@
+﻿@model SubAdminModel
+
+<link href="~/individualcss/profile.css" rel="stylesheet" />
+<div class="row">
+    <div class="col-xl-4">
+        <!-- Profile picture card-->
+        <div class="card mb-4 mb-xl-0">
+            <div class="card-header">Profile Picture</div>
+            <div class="card-body text-center">
+                <!-- Profile picture image-->
+                <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                <!-- Profile picture help block-->
+                <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                <!-- Profile picture upload button-->
+                <button class="btn btn-primary" type="button">Upload new image</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-8">
+        <!-- Account details card-->
+        <div class="card mb-4">
+            <div class="card-header">Account Details</div>
+            <div class="card-body">
+                <div>
+                    <input type="hidden" asp-for="Id" />
+
+                    <!-- Form Group (username)-->
+                   @*  <div class="mb-3">
+                        <label class="small mb-1" asp-for="UserName">Username</label>
+                        <input class="form-control" asp-for="UserName" type="text" placeholder="Enter your username">
+                    </div> *@
+                    <!-- Form Row-->
+                    <div class="row gx-3 mb-3">
+                        <!-- Form Group (first name)-->
+                        <div class="col-md-6">
+                            <label class="small mb-1" asp-for="FirstName">First name</label>
+                            <input class="form-control" asp-for="FirstName" type="text" placeholder="Enter your first name">
+                        </div>
+                        <!-- Form Group (last name)-->
+                        <div class="col-md-6">
+                            <label class="small mb-1" asp-for="LastName">Last name</label>
+                            <input class="form-control" asp-for="LastName" type="text" placeholder="Enter your last name">
+                        </div>
+                    </div>
+                    <!-- Form Row        -->
+                    <div class="row gx-3 mb-3">
+                        <!-- Form Group (email)-->
+                        <div class="col-md-6">
+                            <label class="small mb-1" asp-for="Email">Email</label>
+                            <input class="form-control" asp-for="Email" type="text" placeholder="Enter your email address">
+                        </div>
+                        <!-- Form Group (location)-->
+                        <div class="col-md-6">
+                            <label class="small mb-1" asp-for="PhoneNumber">Phone number</label>
+                            <input type="number" min="1" class="form-control" asp-for="PhoneNumber" />
+                        </div>
+                    </div>
+                    <!-- Form Group (address)-->
+                    <div class="mb-3">
+                        <label class="small mb-1" asp-for="Address">Address</label>
+                        <textarea class="form-control" cols="2" asp-for="Address" rows="2"></textarea>
+                    </div>
+                    <!-- Form Row-->
+                    @* <div class="row gx-3 mb-3">
+                    <!-- Form Group (phone number)-->
+                    <div class="col-md-6">
+                    <label class="small mb-1" for="inputPhone">Phone number</label>
+                    <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567">
+                    </div>
+                    <!-- Form Group (birthday)-->
+                    <div class="col-md-6">
+                    <label class="small mb-1" for="inputBirthday">Birthday</label>
+                    <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988">
+                    </div>
+                    </div> *@
+                    <!-- Save changes button-->
+                    <button class="btn btn-primary" id="Update_Profile" type="button">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-12">
+        <hr class="mb-5">
+        <span class="anchor" id="formChangePassword"></span>
+
+        <!-- form card change password -->
+        <div class="card card-outline-secondary">
+            <div class="card-header">
+                <h3 class="mb-0">Change Password</h3>
+            </div>
+            <div class="card-body">
+                <div class="form">
+                    <div class="form-group">
+                        <label for="PasswordOld">Current Password</label>
+                        <input type="password" class="form-control" id="PasswordOld">
+                    </div>
+                    <div class="form-group">
+                        <label for="PasswordNew">New Password</label>
+                        <input type="password" class="form-control" id="PasswordNew">                  
+                    </div>
+                    <div class="form-group">
+                        <label for="PasswordNewVerify">Verify</label>
+                        <input type="password" class="form-control" id="PasswordNewVerify">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success btn-lg float-right" id="Update_Password">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /form card change password -->
+
+    </div>
+</div>
+
+<script src="~/js/viewsscripts/userprofile.js"></script>

@@ -1,0 +1,38 @@
+﻿@using Zevopay.Data.Entity
+@model IEnumerable<Surcharge>
+
+<div class="table-responsive">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>TransactionType</th>
+                <th>PackageName</th>
+                <th>RangeFrom</th>
+                <th>RangeTo</th>
+                <th>Surcharge</th>
+                <th>IsFlat</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model?.Count() > 0)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TransactionType</td>
+                        <td>@item.PackageName</td>
+                        <td>@item.RangeFrom</td>
+                        <td>@item.RangeTo</td>
+                        <td>@item.SurchargeAmount </td>
+                        <td>@item.IsFlat</td>
+                        <td>
+                            <a class="btn btn-success btn-sm btn-icon-text mr-3" asp-route-Id="@item.Id" asp-controller="Admin" asp-action="Surcharge">Edit</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

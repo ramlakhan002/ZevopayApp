@@ -1,0 +1,51 @@
+﻿@model Zevopay.Models.SubAdminDto
+<div class="table-responsive">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model?.SubAdminData?.Count > 0)
+            {
+                @foreach (var item in Model.SubAdminData)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>
+                            @if (!item.LockoutEnabled)
+                            {
+                                <input type="button" data-SubadminId="@item.Id" class="btn btn-primary btn-rounded btn-fw updateStatus" value="Active" />
+                            }
+                            else
+                            {
+                                <input type="button" data-SubadminId="@item.Id" class="btn btn-secondary btn-rounded btn-fw updateStatus" value="DeActive" />
+                            }
+                        </td>
+
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <a class="btn btn-success btn-sm btn-icon-text mr-3 editSubAdmin" asp-controller="Account" asp-action="SubAdmin" asp-route-id="@item.Id">Edit<i class="typcn typcn-edit btn-icon-append"></i></a>
+
+
+                                @* <button type="button" class="btn btn-danger btn-sm btn-icon-text">
+                        Delete
+                        <i class="typcn typcn-delete-outline btn-icon-append"></i>
+                        </button> *@
+                            </div>
+                        </td>
+                    </tr>
+
+                }
+            }
+        </tbody>
+    </table>
+</div>
