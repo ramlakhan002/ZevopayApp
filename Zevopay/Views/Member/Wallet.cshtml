@@ -1,0 +1,32 @@
+﻿@model WalletModel
+
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Member Id</th>
+                <th>Member Name</th>
+                <th>Debit</th>
+                <th>Credit</th>
+                <th>Balance</th>
+                <th>View Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                <tr>
+                    <td>@Model.MemberId</td>
+                    <td>@Model.MemberName</td>
+                    <td>@Model.Debit</td>
+                    <td>@Model.Credit</td>
+                    <td>@Model.Balance</td>
+                    <td>
+                        <a class="btn btn-secondary btn-rounded btn-fw" asp-controller="Member" asp-action="WalletTransactions">View</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

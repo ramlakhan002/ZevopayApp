@@ -1,0 +1,19 @@
+﻿@model PayoutsLinkModel
+
+<h4 class="card-title">Payout Link</h4>
+<div class="forms-sample">
+    <div class="form-group">
+        <label asp-for="PhoneNumber">Phone Number</label>
+        <input type="number" asp-for="PhoneNumber" class="form-control" placeholder="Phone Number">
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input type="email" asp-for="Email" class="form-control" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount">Amount</label>
+        <input type="number" asp-for="Amount" class="form-control" step="1" min="0" placeholder="Amount">
+    </div>
+    <button type="button" class="btn btn-primary mr-2" id="PayoutsLink_Submit_btn">Submit</button>
+</div>
+<script src="~/js/viewsscripts/payoutslink.js"></script>

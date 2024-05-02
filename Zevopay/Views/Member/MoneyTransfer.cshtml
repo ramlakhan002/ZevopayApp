@@ -1,0 +1,33 @@
+﻿@model MoneyTransferModel
+
+<h4 class="card-title">Money Transfer</h4>
+<div class="forms-sample">
+    <div class="form-group">
+        <label asp-for="PaymentMode">Payment Mode</label>
+        <select asp-for="PaymentMode" class="form-control">
+            <option value="">Select Mode</option>
+            <option value="NEFT">NEFT</option>
+            <option value="RTGS">RTGS</option>
+            <option value="TMPS">TMPS</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="AccountNumber">Account Number</label>
+        <input type="number" asp-for="AccountNumber" class="form-control" min="0" placeholder="Account Number">
+    </div>
+    <div class="form-group">
+        <label asp-for="IFSCCode">IFSC Code</label>
+        <input type="text" asp-for="IFSCCode" class="form-control" placeholder="IFSC Code">
+    </div>
+    <div class="form-group">
+        <label asp-for="FullName">Full Name</label>
+        <input type="text" asp-for="FullName" class="form-control" placeholder="Full Name">
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount">Amount</label>
+        <input type="number" asp-for="Amount" class="form-control" step="0.01" min="0" placeholder="Amount">
+    </div>
+
+    <button type="button" class="btn btn-primary mr-2" id="MoneyTransfer_Submit_btn">Submit</button>
+</div>
+<script src="~/js/viewsscripts/MoneyTransfer.js"></script>

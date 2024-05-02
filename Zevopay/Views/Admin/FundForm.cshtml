@@ -1,0 +1,65 @@
+﻿@model FundManageModel
+
+<div class="form-sample">
+    <h5 class="card-description">
+        Fund Manage
+    </h5>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Select User</label>
+                <div class="col-sm-9">
+                    <select class="js-example-basic-single w-100  selectMember" asp-items="@Model.Users" id="memberId">
+                        <option value="">Select User</option>
+                    </select>
+                    <div style="color:green" id="balance"></div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Select Factor</label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="factor">
+                        <option value="">Select Factor</option>
+                        <option value="Cr">Credit</option>
+                        <option value="Dr">Debit</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Amount</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="amount" min="0" step="0.01" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-9">
+                    <input id="description" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Two Factor Code</label>
+                <div class="col-sm-9">
+                    <input id="TwoFactorCode" class="form-control" placeholder="Enter Two Factor Code">
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="button" class="btn btn-primary btn-rounded btn-fw" id="fundManage_btn" value="Submit" />
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="~/js/viewsscripts/fundmanage.js"></script>

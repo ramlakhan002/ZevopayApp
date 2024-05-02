@@ -1,0 +1,88 @@
+﻿@using Zevopay.Data.Entity
+@using Zevopay.Services
+@model Surcharge
+
+@{
+    var TxnType = Enumeration.GetAll<TransactionTypeEnum>().Select(x => new SelectListItem()
+            {
+                Text = x.Value,
+                Value = x.Key.ToString()
+            });
+}
+
+<input type="hidden" value="@Model?.Id" id="Id"/>
+<div class="form-sample">
+    <h5 class="card-description">
+        @(Model?.Id==0?"Add Surcharge":"Update Surcharge")
+    </h5>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Transaction Type</label>
+                <div class="col-sm-9">
+                    <select class="form-control" asp-for="TransactionType" id="TransactionType" asp-items="TxnType">
+                        <option value="">Select Type</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Package</label>
+                <div class="col-sm-9">
+                    <select class="form-control" asp-for="PackageId" id="PackageId" asp-items="@(new SelectList(@Model.Packages,"PackageId","PackageName"))">
+                        <option value="">Select Package</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">RangeFrom</label>
+                <div class="col-sm-9">
+                    <input type="number" asp-for="RangeFrom" class="form-control" id="RangeFrom" min="0" step="0.01" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">RangeTo</label>
+                <div class="col-sm-9">
+                    <input type="number" asp-for="RangeTo" class="form-control" id="RangeTo" min="0" step="0.01" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Surcharge Amount</label>
+                <div class="col-sm-9">
+                    <input type="number" asp-for="SurchargeAmount" class="form-control" min="0" step="0.01" id="SurchargeAmount" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">IsFlat</label>
+                <div class="col-sm-9">
+                    <input type="checkbox" asp-for="IsFlat" id="IsFlat" class="form-check-primary mt-4">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <input type="button" class="btn btn-primary btn-rounded btn-fw" id="Surcharge_Submit_btn" value="@(Model?.Id==0?"Submit":"Update")" />
+    <a class="btn btn-primary btn-rounded btn-fw" asp-controller="Admin" asp-action="SurchargeList">back</a>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="~/js/viewsscripts/surcharge.js"></script>
